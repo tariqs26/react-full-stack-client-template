@@ -5,6 +5,9 @@ import removeProduct from 'api/removeProduct';
 
 const Product = () => {
   const { id } = useParams();
+  const queryClient = useQueryClient(),
+    navigate = useNavigate();
+    
   const { data, status, error } = useQuery({
     queryKey: ['products', id],
     queryFn: () => fetchProductById(id as string),
@@ -16,8 +19,6 @@ const Product = () => {
     },
   });
 
-  const queryClient = useQueryClient(),
-    navigate = useNavigate();
   const mutate = useMutation({
     mutationFn: removeProduct,
     onSuccess: () => {
