@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import updateProduct from 'api/updateProduct';
 import Form from 'components/Form';
 
-function ProductEdit() {
+const ProductEdit = () => {
   const {
     state: { product },
   } = useLocation();
@@ -35,6 +35,6 @@ function ProductEdit() {
       <Link to={`/products/${product._id}`}>Back</Link>
     </section>
   );
-}
+};
 
 export default ProductEdit;

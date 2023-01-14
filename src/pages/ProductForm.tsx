@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import addProduct from 'api/addProduct';
 import Form from 'components/Form';
 
-function ProductForm() {
+const ProductForm = () => {
   const queryClient = useQueryClient(),
     navigate = useNavigate();
 
@@ -28,6 +28,6 @@ function ProductForm() {
       <Link to='/products'>Back</Link>
     </section>
   );
-}
+};
 
 export default ProductForm;

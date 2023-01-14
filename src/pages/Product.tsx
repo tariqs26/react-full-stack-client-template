@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import fetchProductById from 'api/fetchProductById';
 import removeProduct from 'api/removeProduct';
 
-export default function Product() {
+const Product = () => {
   const { id } = useParams();
   const { data, status, error } = useQuery({
     queryKey: ['products', id],
@@ -48,4 +48,6 @@ export default function Product() {
       </button>
     </section>
   );
-}
+};
+
+export default Product;

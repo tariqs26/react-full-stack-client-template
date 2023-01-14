@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import fetchProducts from 'api/fetchProducts';
 
-export default function Products() {
+const Products = () => {
   const { data, status, error } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
@@ -26,4 +26,6 @@ export default function Products() {
       <Link to='/products/new'>Add a new product</Link>
     </section>
   );
-}
+};
+
+export default Products;
