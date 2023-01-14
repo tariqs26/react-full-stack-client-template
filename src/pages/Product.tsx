@@ -7,7 +7,7 @@ const Product = () => {
   const { id } = useParams();
   const queryClient = useQueryClient(),
     navigate = useNavigate();
-    
+
   const { data, status, error } = useQuery({
     queryKey: ['products', id],
     queryFn: () => fetchProductById(id as string),
@@ -15,7 +15,7 @@ const Product = () => {
     initialData: () => {
       return queryClient
         .getQueryData<Array<{ _id: string }>>(['products'])
-        ?.find((p: any) => p._id === id);
+        ?.find((p) => p._id === id);
     },
   });
 
