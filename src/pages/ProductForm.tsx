@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import addProduct from 'api/addProduct';
-import Form from '../components/Form';
+import Form from 'components/Form';
 
 function ProductForm() {
   const queryClient = useQueryClient(),
