@@ -19,7 +19,7 @@ const ProductEdit = () => {
         (oldData: Array<Product> | undefined) =>
           oldData!.map((p) => (p._id === data._id ? data : p))
       );
-      navigate(`/products/${data._id}`);
+      navigate(-1);
     },
   });
 

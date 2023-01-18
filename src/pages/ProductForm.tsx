@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import addProduct from 'api/addProduct';
+import { addProduct } from 'api/productsAPI';
+import { productFromData } from '../utils';
 import Form from 'components/Form';
 
 const ProductForm = () => {
@@ -9,16 +10,15 @@ const ProductForm = () => {
 
   const mutate = useMutation({
     mutationFn: addProduct,
-    onSuccess: () => {
+    onSuccess: (data: string) => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
+      navigate(`/products/${data}`);
     },
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    mutate.mutate(JSON.stringify(Object.fromEntries(formData)));
-    navigate('/products');
+    mutate.mutate(productFromData(e.currentTarget));
   };
 
   return (
