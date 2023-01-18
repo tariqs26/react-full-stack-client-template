@@ -4,3 +4,5 @@ type Product = {
   price: number;
   category: 'vegetables' | 'fruits' | 'dairy';
 };
+
+type ProductInput = Omit<Product, '_id'>;
