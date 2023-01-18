@@ -19,7 +19,7 @@ export const updateProduct = async ({
 }: {
   id: string;
   data: ProductInput;
-}) => {
+}): Promise<Product> => {
   return await api.put(`/products/${id}`, data);
 };
 
